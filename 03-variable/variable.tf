@@ -52,8 +52,10 @@ output "demo1" {
   value = var.demo1
 }
 
-variable "demo2" {}
+variable "demo2" {
+  default =null
+}
 
 output "demo2" {
-  value = null
+  value = var.demo2
 }
