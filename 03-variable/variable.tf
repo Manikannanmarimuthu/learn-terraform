@@ -55,5 +55,5 @@ output "demo1" {
 variable "demo2" {}
 
 output "demo2" {
-  value = null
+  value = "null"
 }
