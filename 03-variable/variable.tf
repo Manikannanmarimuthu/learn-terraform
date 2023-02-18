@@ -51,3 +51,9 @@ variable "demo1" {}
 output "demo1" {
   value = var.demo1
 }
+
+variable "demo2" {}
+
+output "demo2" {
+  value = null
+}
