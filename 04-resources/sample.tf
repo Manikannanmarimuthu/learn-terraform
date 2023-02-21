@@ -15,3 +15,4 @@ resource "aws_instance" "web" {
   tags = {
     Name = "test-centos8"
   }
+}
