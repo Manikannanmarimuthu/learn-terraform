@@ -2,8 +2,12 @@ resource "aws_instance" "web" {
   count =length(var.components)
   ami           = data.aws_ami.centos8.id
   instance_type = "t3.micro"
-  tags = {
-    Name = "test-centos8"
+
+ tags = {
+   #without Count
+    #Name = "test-centos8"
+   #With Count
+   Name = var.components[count.index]
   }
 }
 
