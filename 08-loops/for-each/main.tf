@@ -14,12 +14,16 @@ data "aws_ami" "centos8" {
   owners           = ["973714476881"]
 }
 
-/*output "publicip" {
+output "publicip" {
   #Without Count
   #value = aws_instance.web.public_ip
-  #With Count
-  value = aws_instance.web.*.public_ip
-}*/
+  #With Count - List
+  #value = aws_instance.web.*.public_ip
+  #With Map
+  value = {
+    for k, v in aws_instance.web:k=>v.public_ip
+  }
+}
 
 variable "components" {
   default = {
