@@ -1,5 +1,5 @@
 resource "aws_instance" "web" {
-  count =1
+  count =length(var.components)
   ami           = data.aws_ami.centos8.id
   instance_type = "t3.micro"
   tags = {
@@ -16,7 +16,10 @@ data "aws_ami" "centos8" {
 output "publicip" {
   #Without Count
   #value = aws_instance.web.public_ip
-#With Count
+  #With Count
   value = aws_instance.web.*.public_ip
+}
 
+variable "components" {
+  default = ["cart","catalogue"]
 }
