@@ -40,3 +40,7 @@ variable "components" {
 
 variable "instance_type" {}
 variable "name" {}
+
+output "ec2" {
+  value =aws_instance.web
+}

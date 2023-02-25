@@ -13,6 +13,7 @@ variable "components" {
 
 module "ec2" {
   source = "./modules"
+
   for_each = var.components
   instance_type = each.value.instance_type
   name= each.value.name
@@ -20,3 +21,7 @@ module "ec2" {
 
 #Always iterate modules, not resources
 #Always map the data and use the for_each loop
+
+output "publicip" {
+  value = module.ec2
+}
