@@ -23,5 +23,8 @@ module "ec2" {
 #Always map the data and use the for_each loop
 
 output "publicip" {
-  value = module.ec2
+  #value = module.ec2
+   value = {
+for k, v in module.ec2:k=>v["ec2"].public_ip
+}
 }
