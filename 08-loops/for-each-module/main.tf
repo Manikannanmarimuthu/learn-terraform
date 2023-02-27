@@ -13,7 +13,6 @@ variable "components" {
 
 module "ec2" {
   source = "./modules"
-
   for_each = var.components
   instance_type = each.value.instance_type
   name= each.value.name
